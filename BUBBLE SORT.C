@@ -1,29 +1,30 @@
-import java.util.*;
-class BubbleSort {
-    void bubbleSort(int arr[])
-    {
-        int n = arr.length;
-        for (int i = 0; i < n - 1; i++)
-            for (int j = 0; j < n - i - 1; j++)
-                if (arr[j] > arr[j + 1]) {
-                    int temp = arr[j];
-                    arr[j] = arr[j + 1];
-                    arr[j + 1] = temp;
-                }
+#include <stdio.h>
+void bubbleSort(int arr[], int n);
+int main() {                                                           
+    int n, i;
+    printf("Enter the size of the array: ");
+    scanf("%d", &n);
+    int arr[n];
+    printf("Enter %d integers:\n", n);
+    for (i = 0; i < n; i++) {
+        scanf("%d", &arr[i]);
     }
-    void printArray(int arr[])
-    {
-        int n = arr.length;
-        for (int i = 0; i < n; ++i)
-            System.out.print(arr[i] + " ");
-        System.out.println();
+    bubbleSort(arr, n);
+    printf("\nSorted array in ascending order:\n");
+    for (i = 0; i < n; i++) {
+        printf("%d ", arr[i]);
     }
-    public static void main(String args[])
-    {
-        BubbleSort ob = new BubbleSort();
-        int arr[] = { 5, 1, 4, 2, 8 };
-        ob.bubbleSort(arr);
-        System.out.println("Sorted array");
-        ob.printArray(arr);
+    return 0;
+}
+void bubbleSort(int arr[], int n) {
+    int i, j, temp;
+    for (i = 0; i < n-1; i++) {
+        for (j = 0; j < n-i-1; j++) {
+            if (arr[j] > arr[j+1]) {
+                temp = arr[j];
+                arr[j] = arr[j+1];
+                arr[j+1] = temp;
+            }
+        }
     }
 }
